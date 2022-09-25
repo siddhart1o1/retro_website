@@ -17,67 +17,69 @@ export default function Navbar() {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.LeftContainer}>
-        <Logo size={"2em"}></Logo>
-      </div>
-      <div className={styles.CenterContainer}>
-        <div className={styles.searchContiner}>
-          <input
-            className={styles.Search}
-            type="text"
-            placeholder="Anything in Your Mind?"
-          />
-          <SearchIcon />
+    <div className={styles.TOP}>
+      <div className={styles.container}>
+        <div className={styles.LeftContainer}>
+          <Logo size={"2em"}></Logo>
         </div>
-      </div>
-      <div className={styles.RightContainer}>
-        <div
-          className={styles.LeftItems}
-          onClick={() => setIsCategoryOpen(!isCategoryOpen)}
-        >
-          <CategoryIcon style={{ color: "black" }}></CategoryIcon>
-          <span>Categories</span>
+        <div className={styles.CenterContainer}>
+          <div className={styles.searchContiner}>
+            <input
+              className={styles.Search}
+              type="text"
+              placeholder="Anything in Your Mind?"
+            />
+            <SearchIcon />
+          </div>
         </div>
-        <div className={styles.LeftItems}>
-          <Badge badgeContent={4} color="primary">
-            <NotificationsIcon style={{ color: "black" }}></NotificationsIcon>
-          </Badge>
-          <span>Notification</span>
-        </div>
-        <div className={styles.LeftItems}>
-          <Badge badgeContent={4} color="primary">
-            <ChatBubbleIcon style={{ color: "black" }}></ChatBubbleIcon>
-          </Badge>
-          <span>Chat</span>
-        </div>
-        <div className={styles.LeftItems}>
-          <FavoriteIcon style={{ color: "red" }}></FavoriteIcon>
-          <span>Liked</span>
-        </div>
-        <div
-          className={styles.ProfileCOntainer}
-          onClick={() => setIsProfileOpen(!isProfileOpen)}
-        >
-          <img className={styles.profilePic} src="/images.jpg" alt="" />
-          <span>Hi Siddharth</span>
-          <ArrowDropDownIcon></ArrowDropDownIcon>
-          {isProfileOpen && (
-            <div className={styles.profileDropDown}>
-              <span className={styles.ProfileList}>
-                <AccountCircleIcon />
-                Profile
-              </span>
-              <span className={styles.ProfileList}>
-                <DashboardIcon />
-                Dashboard
-              </span>
-              <span className={styles.ProfileList}>
-                <LogoutIcon />
-                Logout
-              </span>
-            </div>
-          )}
+        <div className={styles.RightContainer}>
+          <div
+            className={styles.LeftItems}
+            onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+          >
+            <CategoryIcon></CategoryIcon>
+            <span>Categories</span>
+          </div>
+          <div className={styles.LeftItems}>
+            <Badge badgeContent={4} color="primary">
+              <NotificationsIcon></NotificationsIcon>
+            </Badge>
+            <span>Notification</span>
+          </div>
+          <div className={styles.LeftItems}>
+            <Badge badgeContent={4} color="primary">
+              <ChatBubbleIcon></ChatBubbleIcon>
+            </Badge>
+            <span>Chat</span>
+          </div>
+          <div className={styles.LeftItems}>
+            <FavoriteIcon style={{ color: "red" }}></FavoriteIcon>
+            <span>Liked</span>
+          </div>
+          <div
+            className={styles.ProfileCOntainer}
+            onClick={() => setIsProfileOpen(!isProfileOpen)}
+          >
+            <img className={styles.profilePic} src="/images.jpg" alt="" />
+            <span>Hi Siddharth</span>
+            <ArrowDropDownIcon></ArrowDropDownIcon>
+            {isProfileOpen && (
+              <div className={styles.profileDropDown}>
+                <span className={styles.ProfileList}>
+                  <AccountCircleIcon />
+                  Profile
+                </span>
+                <span className={styles.ProfileList}>
+                  <DashboardIcon />
+                  Dashboard
+                </span>
+                <span className={styles.ProfileList}>
+                  <LogoutIcon />
+                  Logout
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

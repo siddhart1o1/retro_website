@@ -1,3 +1,4 @@
+
 .container {
   display: flex;
   max-width: 85em;
@@ -13,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #f8f8f8;
   border-radius: 0.5em;
   padding: 0.5em;
   margin: 0.5em;
@@ -24,4 +25,7 @@
   transition: all 0.3s ease-in-out;
   height: 4em;
   width: 10%;
+  margin: 0 auto;
+
+box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }

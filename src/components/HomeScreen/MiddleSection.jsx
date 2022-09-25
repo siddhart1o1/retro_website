@@ -102,22 +102,22 @@ const items = [
 
 export default function MiddleSection() {
   return (
-    <div className={styles.Container}>
-        {
-            items.map((item) => {
-                return (
-                  <Card
-                    key={item.id}
-                    title = {item.title}
-                    description = {item.description}
-                    image = {item.image}
-                    uploadDate = {item.uploadDate}
-                    price = {item.price} 
-                    location = {item.location}
-                  ></Card>
-                );
-            })
-        }
+    <div className={styles.TOP}>
+      <div className={styles.Container}>
+        {items.map((item) => {
+          return (
+            <Card
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              image={item.image}
+              uploadDate={item.uploadDate}
+              price={item.price}
+              location={item.location}
+            ></Card>
+          );
+        })}
+      </div>
     </div>
   );
 }

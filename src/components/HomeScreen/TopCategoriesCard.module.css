@@ -3,7 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    padding: 1em;
+    border-radius: 0.5em;
 }
+
+
 
 .Image{
     width: 2em;
@@ -14,4 +19,20 @@
 .Title{
     font-size: 0.9em;
     font-weight: 500;
+}
+
+/* .Selected{
+    margin-top: 0.5em;
+    width: 1.5em;    
+    border-bottom: 3px solid rgb(0, 0, 0);
+}
+
+.UnSelected{
+    margin-top: 0.5em;
+    width: 1.5em;    
+    border-bottom: 3px solid rgb(255, 255, 255);
+} */
+
+.Container:hover{
+    background-color: rgb(231, 230, 230);
 }

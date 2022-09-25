@@ -1,9 +1,19 @@
-.Container{
-    display: flex;
-    margin: 0 auto;
-    max-width: 85em;
-    flex-wrap: wrap;
-    gap:1.2em;
-    position: relative;
-    top:-3em;
+.TOP {
+  display: flex;
+  max-width: 85em;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.Container {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  position: relative;
+  top: -3em;
+  align-items: center;
+  justify-content: center;
 }
