@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Light.otf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Italic.otf");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-BoldItalic.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-LightItalic.otf");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Black.otf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-BlackItalic.otf");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-MediumItalic.otf");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-Thin.otf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./fonts/NeueMontreal-ThinItalic.otf");
+  font-weight: 100;
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "NeueMontreal";
+ 
+}
+html{
+   color:#484848;
+}

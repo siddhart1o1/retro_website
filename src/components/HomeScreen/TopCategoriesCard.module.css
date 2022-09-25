@@ -1,0 +1,17 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Image{
+    width: 2em;
+    height: 2em;
+    object-fit: cover;
+}
+
+.Title{
+    font-size: 0.9em;
+    font-weight: 500;
+}

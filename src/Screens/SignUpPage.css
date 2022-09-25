@@ -1,0 +1,151 @@
+.SingUpContainer {
+ width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.SignUpPageLogo {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.SingUpLeftHalf {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.SingUpGreetings {
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+.SingUpWelcome {
+  font-size: 3em;
+  font-weight: 600;
+}
+.SingUpRequestDetials {
+  font-size: 1.3em;
+}
+
+.SingUpInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 20em
+}
+
+.SingUpGoogleButtonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.GoogleSingUpButton {
+  background-color: white;
+  border: 1px solid #bdbdbd;
+  color: black;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  gap: 1em;
+  font-weight: 500;
+  width: 100%;
+}
+
+.SingUpFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+.SignUpName{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.SingUpInput {
+  width: 100%;
+  padding: 0.4em;
+  border: None;
+  font-size: 1rem;
+  outline: none;
+  background-color: white;
+  border-bottom: #bdbdbd 1px solid;
+}
+
+.AlreadyHaveAccount {
+  text-align: center;
+}
+
+.SingUpRemeberMe {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  gap: 0.5em;
+}
+
+.SingUpForgotPassword {
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.SingUpSubmitButton {
+  background-color: #000000;
+  color: white;
+  border: None;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 1em;
+}
+
+/* right half */
+.SingUpRightHalf {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background-image: linear-gradient(120deg, #141e30 0%, #243b55 100%);
+  color: white;
+  text-align: center;
+}
+.SingUpPageLeftHalfDesc {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  max-width: 50ch;
+}
+@media (max-width: 768px) {
+  .SingUpRightHalf {
+    display: none;
+  }
+  .SingUpLeftHalf {
+    width: 100%;
+  }
+}
+    
