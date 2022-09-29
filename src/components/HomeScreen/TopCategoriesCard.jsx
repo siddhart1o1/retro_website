@@ -7,7 +7,7 @@ export default function TopCategoriesCard({ id, name, image, link }) {
   return (
     <div
       className={styles.Container}
-      style={selected ? { color: "white", backgroundColor: "black" } : {}}
+      style={selected ? { color: "white", backgroundColor: "#ef233c" } : {}}
       onClick={() => setSelected(!selected)}
     >
       <img className={styles.Image} src={image} alt={name} />

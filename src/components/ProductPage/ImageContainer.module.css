@@ -1,0 +1,78 @@
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.ImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  width: 50em;
+  height: 50em;
+  object-fit: contain;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: black;
+}
+
+.LeftArrow {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.5em;
+  cursor: pointer;
+  left: 1em;
+}
+
+.RightArrow {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.5em;
+  right: 1em;
+  cursor: pointer;
+}
+
+.Thumb {
+  display: flex;
+  flex-direction: column;
+  height: 50em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 2em;
+}
+.imageThumb {
+  width: 20em;
+  height: 30em;
+  margin: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}

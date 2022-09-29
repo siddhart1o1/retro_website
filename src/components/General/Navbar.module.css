@@ -1,6 +1,6 @@
 .TOP {
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   backdrop-filter: blur(5px);
@@ -24,7 +24,8 @@
 }
 
 .searchContiner {
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -36,11 +37,23 @@
 }
 
 .Search {
-  background-color: rgb(224, 224, 224);
   border: none;
   outline: none;
   width: 95%;
   height: 100%;
+}
+
+.SearchIcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #e63946;
+  color: white;
+  padding: 0.1em;
+  cursor: pointer;
+  left: 0.7em;
+  position: relative;
 }
 
 .RightContainer {
@@ -103,6 +116,7 @@
   cursor: pointer;
   padding: 1em;
   gap: 0.4em;
+  border-radius: 10px;
 }
 
 .ProfileList:hover {

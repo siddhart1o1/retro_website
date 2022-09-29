@@ -1,0 +1,29 @@
+.TopContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.Title {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.Location {
+  font-size: 1rem;
+}
+
+.TopRight {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  font-size: 1.2rem;
+}
+
+.TopRightIcons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+}

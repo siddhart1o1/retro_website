@@ -2,12 +2,22 @@ import LoginScreen from "./Screens/LoginScreen";
 import SignUpPage from "./Screens/SignUpPage";
 import Navbar from "./components/General/Navbar";
 import HomePage from "./Screens/HomePage";
+import ProductPage from "./Screens/ProductPage";
+import { Routes, Route } from "react-router-dom";
+
+
+import "mapbox-gl/dist/mapbox-gl.css";
+
 function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      {/* <SignUpPage></SignUpPage> */}
-      <HomePage></HomePage>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginScreen />} />
+      </Routes>
     </div>
   );
 }

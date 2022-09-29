@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "./MiddleSection.module.css";
-import Card from "../General/Card"
-
+import styles from "./SimialItems.module.css";
+import Card from "../General/Card";
 const items = [
   {
     id: 1,
@@ -76,55 +75,16 @@ const items = [
     price: "100",
     location: "india",
   },
-  {
-    id: 4,
-    title: "title4",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quam laborum ea ratione rerum quo consequatur repellendus eius cumque totam fugiat qui deleniti aliquam autem cupiditate commodi, consequuntur, corporis itaque?",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 5,
-    title: "title5",
-    description: "description5",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 4,
-    title: "title4",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quam laborum ea ratione rerum quo consequatur repellendus eius cumque totam fugiat qui deleniti aliquam autem cupiditate commodi, consequuntur, corporis itaque?",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 5,
-    title: "title5",
-    description: "description5",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
 ];
 
-
-
-export default function MiddleSection() {
+export default function SimialItems() {
   return (
     <div className={styles.TOP}>
+      <div className={styles.Title}> More Simlair Items </div>
       <div className={styles.Container}>
         {items.map((item) => {
           return (
-            <Card 
+            <Card
               key={item.id}
               id={item.id}
               title={item.title}

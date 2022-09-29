@@ -29,7 +29,9 @@ export default function Navbar() {
               type="text"
               placeholder="Anything in Your Mind?"
             />
-            <SearchIcon />
+            <div className={styles.SearchIcon}>
+              <SearchIcon />
+            </div>
           </div>
         </div>
         <div className={styles.RightContainer}>

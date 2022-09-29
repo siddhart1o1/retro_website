@@ -1,0 +1,23 @@
+
+.Title{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.TOP {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 2em;
+  flex-direction: column;
+}
+
+.Container {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}

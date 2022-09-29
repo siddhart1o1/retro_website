@@ -3,7 +3,7 @@ const Divider = ({ children }) => {
   return (
     <div className="container">
       <div className="border" />
-      <span className="content">{children}</span>
+      {children && <span className="content">{children}</span>}
       <div className="border" />
     </div>
   );
