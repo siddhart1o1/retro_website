@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./MiddleSection.module.css";
-import Card from "../General/Card"
+import Card from "../General/Card";
 
-const items = [
+const data = [
   {
     id: 1,
     title: "title1",
@@ -116,15 +116,18 @@ const items = [
   },
 ];
 
+export default function MiddleSection({ category }) {
+  const [items, setItems] = React.useState([]);
+  React.useEffect(() => {
+    setItems(data);
+  }, [category]);
 
-
-export default function MiddleSection() {
   return (
     <div className={styles.TOP}>
       <div className={styles.Container}>
         {items.map((item) => {
           return (
-            <Card 
+            <Card
               key={item.id}
               id={item.id}
               title={item.title}

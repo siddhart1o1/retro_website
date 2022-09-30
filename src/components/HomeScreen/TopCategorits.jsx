@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import styles from "./TopCategorits.module.css";
 import TopCategoriesCard from "./TopCategoriesCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,7 +9,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
 
 const categories = [
   {
@@ -55,50 +55,51 @@ const categories = [
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "Car",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "Bike",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "Truck",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "Plane",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "pet",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "bird",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
   {
     id: 8,
-    name: "Kitchen ",
+    name: "doll",
     image: "/TopCategory/img.png",
     link: "/kitchen-",
   },
 ];
 
-export default function TopCategorits() {
+export default function TopCategorits({ Selectedcategory }) {
   const swiperRef = React.useRef(null);
+
   return (
     <div className={styles.Container}>
       <ArrowCircleLeftIcon
@@ -115,6 +116,9 @@ export default function TopCategorits() {
                 name={category.name}
                 image={category.image}
                 link={category.link}
+                selected_category={
+                  Selectedcategory === category.name ? true : false
+                }
               />
             </SwiperSlide>
           );
