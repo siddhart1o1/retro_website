@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import styles from "./TopCategorits.module.css";
 import TopCategoriesCard from "./TopCategoriesCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -102,7 +102,7 @@ export default function TopCategorits({ Selectedcategory }) {
 
   return (
     <div className={styles.Container}>
-      <ArrowCircleLeftIcon
+      <KeyboardArrowLeftIcon
         id="previousButton"
         onClick={() => swiperRef.current.swiper.slidePrev()}
       />
@@ -124,7 +124,7 @@ export default function TopCategorits({ Selectedcategory }) {
           );
         })}
       </Swiper>
-      <ArrowCircleRightIcon
+      <KeyboardArrowRightIcon
         id="nextButton"
         onClick={() => swiperRef.current.swiper.slideNext()}
       />

@@ -3,7 +3,6 @@
   flex-direction: column;
   max-width: 23%;
   gap: 0.7em;
-  margin-top: 3em;
   text-decoration: none; /* remove underline */
   color: inherit;
 }
@@ -20,14 +19,14 @@
 }
 
 .FavouriteIcon {
-  position: absolute;
+  position: relative;
   color: #fff;
   font-size: 1.5em;
   cursor: pointer;
   z-index: 1;
   transition: all 1s ease-in-out;
-  top: 0em;
-  right: 0.3em;
+  top:2em;
+  right: -0.3em;
 }
 
 .Image {
