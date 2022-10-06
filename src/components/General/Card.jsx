@@ -3,7 +3,9 @@ import Styles from "./Card.module.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
-
+import { format } from "timeago.js";
+import { height } from "@mui/system";
+import axios from "axios";
 export default function Card({
   title,
   description,
@@ -12,21 +14,42 @@ export default function Card({
   price,
   location,
   id,
+  width,
+  height,
+  likes,
 }) {
-  const [isFavourite, setIsFavourite] = React.useState(false);
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const [isFavourite, setIsFavourite] = React.useState(
+    likes.includes(user._id)
+  );
+
+  const handelLike = async () => {
+    setIsFavourite(!isFavourite);
+    await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/products/like/${id}`,
+      {},
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${localStorage.getItem("accessToken")}`,
+        },
+      }
+    );
+  };
+
   return (
-    <div className={Styles.Container}>
+    <div
+      style={{
+        width: width,
+        height: height,
+      }}
+      className={Styles.Container}
+    >
       <div className={Styles.FavouriteIcon}>
         {isFavourite ? (
-          <FavoriteIcon
-            onClick={() => setIsFavourite(!isFavourite)}
-            style={{ color: "red" }}
-          />
+          <FavoriteIcon onClick={handelLike} style={{ color: "red" }} />
         ) : (
-          <FavoriteBorderIcon
-            onClick={() => setIsFavourite(!isFavourite)}
-            style={{ color: "white"  }}
-          />
+          <FavoriteBorderIcon onClick={handelLike} style={{ color: "white" }} />
         )}
       </div>
 
@@ -42,7 +65,9 @@ export default function Card({
             <div className={Styles.Price}>${price}</div>
           </div>
           <div className={Styles.RightContainer}>
-            <div className={Styles.UploadDate}>{uploadDate}</div>
+            <div className={Styles.UploadDate}>
+              {format(uploadDate, "en_US")}
+            </div>
           </div>
         </div>
       </Link>

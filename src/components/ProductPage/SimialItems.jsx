@@ -1,83 +1,9 @@
 import React from "react";
 import styles from "./SimialItems.module.css";
 import Card from "../General/Card";
-const items = [
-  {
-    id: 1,
-    title: "title1",
-    description: "description1",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 2,
-    title: "title2",
-    description: "description2",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 3,
-    title: "title3",
-    description: "description3",
-    image: "/photos/img2.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 4,
-    title: "title4",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quam laborum ea ratione rerum quo consequatur repellendus eius cumque totam fugiat qui deleniti aliquam autem cupiditate commodi, consequuntur, corporis itaque?",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 5,
-    title: "title5",
-    description: "description5",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 1,
-    title: "title1",
-    description: "description1",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 2,
-    title: "title2",
-    description: "description2",
-    image: "/photos/sample.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-  {
-    id: 3,
-    title: "title3",
-    description: "description3",
-    image: "/photos/img2.webp",
-    uploadDate: "3 days ago",
-    price: "100",
-    location: "india",
-  },
-];
 
-export default function SimialItems() {
+
+export default function SimialItems({ items }) {
   return (
     <div className={styles.TOP}>
       <div className={styles.Title}> More Simlair Items </div>
@@ -85,14 +11,16 @@ export default function SimialItems() {
         {items.map((item) => {
           return (
             <Card
-              key={item.id}
-              id={item.id}
-              title={item.title}
+              key={item._id}
+              id={item._id}
+              title={item.name}
               description={item.description}
-              image={item.image}
-              uploadDate={item.uploadDate}
+              image={item.thumbnail}
+              uploadDate={item.createdAt}
               price={item.price}
-              location={item.location}
+              location={`${item.country} ${item.city}`}
+              category={item.category}
+              likes={item.likes}
             ></Card>
           );
         })}

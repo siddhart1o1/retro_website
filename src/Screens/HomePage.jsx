@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function HomePage() {
-  const { category } = useParams();
+  let { category } = useParams();
+  if (!category) category = "Newest";
 
   return (
     <div>

@@ -19,5 +19,5 @@
   gap: 1.5em;
   position: relative;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }

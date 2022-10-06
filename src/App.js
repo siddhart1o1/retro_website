@@ -6,19 +6,25 @@ import ProductPage from "./Screens/ProductPage";
 import { Routes, Route } from "react-router-dom";
 import SellProduct from "./Screens/SellProduct";
 
-import "mapbox-gl/dist/mapbox-gl.css";
-
 function App() {
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+
   return (
     <div className="App">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/sell" element={<SellProduct />} />
-        <Route path="/:category" element={<HomePage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginScreen />} />
+        {user ? (
+          <>
+            <Route path="/sell" element={<SellProduct />} />
+            <Route path="/:category" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+          </>
+        ) : (
+          <>NOT ALLOWD</>
+        )}
       </Routes>
     </div>
   );

@@ -13,7 +13,7 @@ import "swiper/css/scrollbar";
 const categories = [
   {
     id: 1,
-    name: "Mobiles",
+    name: "Newest",
     image: "/TopCategory/img.png",
     link: "/mobiles",
   },
@@ -99,14 +99,12 @@ const categories = [
 
 export default function TopCategorits({ Selectedcategory }) {
   const swiperRef = React.useRef(null);
-
   return (
     <div className={styles.Container}>
       <KeyboardArrowLeftIcon
         id="previousButton"
         onClick={() => swiperRef.current.swiper.slidePrev()}
       />
-
       <Swiper slidesPerView={10} ref={swiperRef}>
         {categories.map((category) => {
           return (

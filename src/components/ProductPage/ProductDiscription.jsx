@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ProductDiscription.module.css";
-import Seprator from "../General/Seprator" 
-export default function ProductDiscription() {
+import Seprator from "../General/Seprator";
+export default function ProductDiscription({description, price, createdAt}) {
   return (
     <div className={styles.contianer}>
       <div className={styles.LeftConatiner}>
@@ -14,25 +14,12 @@ export default function ProductDiscription() {
             <img className={styles.ProfileImage} src="/images.jpg" alt="" />
           </div>
         </div>
-          <Seprator/>
-
-        <div className={styles.Desc}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem
-          necessitatibus, dicta animi numquam eligendi perspiciatis. Dolorum sed
-          dolore ducimus accusantium deserunt ipsum doloremque? Rerum,
-          laboriosam iure non nostrum cumque labore Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Illum nulla veritatis nostrum, ducimus
-          possimus aliquid? Pariatur totam officia odit in voluptatem ex error
-          dolor porro mollitia incidunt. Quisquam, porro asperiores. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Eius ipsam nihil
-          molestias doloribus iure culpa esse modi hic, aliquid consequatur
-          accusantium enim aliquam, porro pariatur blanditiis! Consequuntur amet
-          maxime quas.
-        </div>
+        <Seprator />
+        <div className={styles.Desc}>{description}</div>
       </div>
 
       <div className={styles.RightContainer}>
-        <div className={styles.PriceConatainer}>$3000</div>
+        <div className={styles.PriceConatainer}>${price}</div>
         <div className={styles.RighConatinerChat}> Chat with Owner</div>
         <div className={styles.RighConatinerOffer}>Make an offer</div>
       </div>

@@ -3,15 +3,49 @@ import { useRef } from "react";
 import { FcGoogle } from "react-icons/fc";
 import Seprator from "../components/General/Seprator";
 import "./LoginScreen.css";
-import Logo from "../components/General/Logo";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+
 export default function LoginScreen() {
   const email = useRef();
   const passwordRef = useRef();
+  const dispatch = useDispatch();
+  const LoginHandler = async (e) => {
+    e.preventDefault();
+    console.log("Login");
+    const emailValue = email.current.value;
+    const passwordValue = passwordRef.current.value;
+    if (emailValue === "" || passwordValue === "") {
+      alert("Please fill all the fields");
+    } else {
+      try {
+        console.log(process.env.REACT_APP_BACKEND_URL);
+        const response = await axios.post(
+          "http://localhost:5000/api/user/login",
+          {
+            email: emailValue,
+            password: passwordValue,
+          }
+        );
+        dispatch({
+          type: "login",
+          payload: {
+            userInfo: response.data,
+            accessToken: response.data.accessToken,
+          },
+        });
+        localStorage.setItem("accessToken", response.data.accessToken);
+        localStorage.setItem("userInfo", JSON.stringify(response.data));
+      } catch (err) {
+        console.log(err);
+        alert(err);
+      }
+    }
+  };
 
   return (
     <div className="LoginContainer">
-      <div className="LoginScreenLogo">
-      </div>
+      <div className="LoginScreenLogo"></div>
       <div className="LoginLeftHalf">
         <div className="LoginGreetings">
           <div className="LoginWelcome">Welcome back</div>
@@ -45,7 +79,11 @@ export default function LoginScreen() {
               </label>
               <div className="LoginForgotPassword">Forgot Password?</div>
             </div>
-            <button className="LoginSubmitButton" type="submit">
+            <button
+              onClick={LoginHandler}
+              className="LoginSubmitButton"
+              type="submit"
+            >
               Log in
             </button>
           </form>
@@ -55,21 +93,11 @@ export default function LoginScreen() {
         </div>
       </div>
       <div className="LoginRightHalf">
-        {/* <div>
-          <Logo size={"5rem"}></Logo>
-        </div>
-         */}
-
-        <img src="/photos/Project_160-06.jpg" className="LoginScreenBackground" alt="background" />
-        {/* <p className="LoginScreenLeftHalfDesc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde
-          modi doloribus asperiores impedit ut voluptates atque rem minus
-          dolorem cum, reprehenderit omnis quia, distinctio quae ratione
-          sapiente labore consequuntur? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Adipisci unde modi doloribus asperiores impedit ut
-          voluptates atque rem minus dolorem cum, reprehenderit omnis quia,
-          distinctio quae ratione sapiente labore consequuntur?
-        </p> */}
+        <img
+          src="/photos/Project_160-06.jpg"
+          className="LoginScreenBackground"
+          alt="background"
+        />
       </div>
     </div>
   );
