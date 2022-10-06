@@ -21,7 +21,7 @@ export default function LoginScreen() {
       try {
         console.log(process.env.REACT_APP_BACKEND_URL);
         const response = await axios.post(
-          "http://localhost:5000/api/user/login",
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/login`,
           {
             email: emailValue,
             password: passwordValue,
