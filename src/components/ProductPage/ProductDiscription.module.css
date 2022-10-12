@@ -57,7 +57,7 @@
   gap: 1em;
   padding: 1em;
   border-radius: 10px;
-  height: 15em;;
+  height: fit-content;
 }
 
 .PriceConatainer {
@@ -79,16 +79,7 @@
   border-radius: 10px;
   padding: 0.5em;
   font-weight: 500;
+  height: fit-content;
+
 }
 
-.RighConatinerOffer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  padding: 0.5em;
-  font-weight: 500;
-}

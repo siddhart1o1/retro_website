@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Logo({ size }) {
   return (
@@ -9,14 +10,17 @@ export default function Logo({ size }) {
         alignItems: "center",
       }}
     >
-      <span
+      <Link
         style={{
           fontSize: size,
           fontWeight: "bold",
+          color: "inherit",
+          textDecoration: "none",
         }}
+        to="/"
       >
-        LOGO
-      </span>
+        RETRO
+      </Link>
     </div>
   );
 }

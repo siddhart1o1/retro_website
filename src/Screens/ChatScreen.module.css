@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  width: 40em;
+}
+
+.messageConainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+  margin-top: 5em;
+  height: 70vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.SenderMessages {
+  padding: 0.3em;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  background-color: rgb(226, 79, 79);
+  color: white;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+.ReceiverMessages {
+  border-radius: 10px;
+  align-self: flex-start;
+
+  padding: 0.3em;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  border: 2px solid rgb(255, 0, 0);
+}
+
+.messageInputContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  width: 100%;
+  margin-top: 5em;
+  align-items: center;
+  justify-content: center;
+}
+.messageinput {
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 0.3em;
+  width: 30em;
+}
+.messageText {
+  font-size: 1.5rem;
+  padding: 0 0.5em;
+}
+.messageButton {
+  border-radius: 10px;
+  padding: 0.57em;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}

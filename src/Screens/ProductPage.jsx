@@ -6,6 +6,7 @@ import ProductDiscription from "../components/ProductPage/ProductDiscription";
 import LocationMap from "../components/ProductPage/LocationMap";
 import SimialItems from "../components/ProductPage/SimialItems";
 import { useParams } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 function ProductPage() {
   const { id } = useParams();
@@ -45,6 +46,10 @@ function ProductPage() {
           price={product.price}
           createdAt={product.createdAt}
           userData={product.userData}
+          user={product.user._id}
+          productId={product._id}
+          category={product.category}
+          owner={product.user.firstName}
         />
         {similarItems && <SimialItems items={similarItems} />}
       </div>

@@ -4,20 +4,21 @@
   width: 23%;
   text-decoration: none; /* remove underline */
   color: inherit;
-  gap:1em;
+  gap: 1em;
 }
 
 .ImageContainer {
   width: 100%;
   height: 17em;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  background-color: black;
-  align-items: center;    
+  background-color: rgb(216, 216, 216);
   overflow: hidden;
   position: relative;
   object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .FavouriteIcon {
@@ -27,8 +28,15 @@
   cursor: pointer;
   z-index: 1;
   transition: all 1s ease-in-out;
-  top: 2em;
-  right: -0.3em;
+  top: 2.35em;
+  right: -0.4em;
+  background-color: white;
+  width: 1.3em;
+  height: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .Image {
@@ -36,6 +44,7 @@
 }
 
 .ContentContainer {
+  padding: 0.3em;
   display: flex;
   justify-content: space-between;
 }
@@ -43,6 +52,11 @@
 .Title {
   font-size: 1.2em;
   font-weight: 600;
+}
+.Location {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6e6e6e;
 }
 
 .Price {
@@ -60,6 +74,10 @@
   white-space: nowrap;
 }
 
+.UploadDate {
+  font-size: 0.8em;
+  color: #808080;
+}
 @media screen and (max-width: 1024px) {
   .Container {
     max-width: 30%;

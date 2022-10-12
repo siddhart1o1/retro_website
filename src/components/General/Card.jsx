@@ -19,22 +19,31 @@ export default function Card({
   likes,
 }) {
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  const [isFavourite, setIsFavourite] = React.useState(
-    likes.includes(user._id)
-  );
+  if (user) {
+    var isLiked = likes.includes(user._id);
+  } else {
+    var isLiked = false;
+  }
+
+  const [isFavourite, setIsFavourite] = React.useState(isLiked);
 
   const handelLike = async () => {
-    setIsFavourite(!isFavourite);
-    await axios.put(
-      `${process.env.REACT_APP_BACKEND_URL}/api/products/like/${id}`,
-      {},
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${localStorage.getItem("accessToken")}`,
-        },
-      }
-    );
+    if (user) {
+      setIsFavourite(!isFavourite);
+      await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/products/like/${id}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+    }
+    else{
+      alert("Please Login First")
+    }
   };
 
   return (
@@ -49,7 +58,7 @@ export default function Card({
         {isFavourite ? (
           <FavoriteIcon onClick={handelLike} style={{ color: "red" }} />
         ) : (
-          <FavoriteBorderIcon onClick={handelLike} style={{ color: "white" }} />
+          <FavoriteBorderIcon onClick={handelLike} style={{ color: "gray" }} />
         )}
       </div>
 

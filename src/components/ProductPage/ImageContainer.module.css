@@ -20,8 +20,8 @@
   object-fit: contain;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid #ccc;
-  background-color: black;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(235, 233, 233);
 }
 
 .LeftArrow {
@@ -75,4 +75,6 @@
   border: 1px solid #ccc;
   cursor: pointer;
   border-radius: 5px;
+  background-color: rgb(235, 233, 233);
+
 }

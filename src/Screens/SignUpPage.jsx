@@ -3,16 +3,51 @@ import { useRef } from "react";
 import { FcGoogle } from "react-icons/fc";
 import Seprator from "../components/General/Seprator";
 import "./SignUpPage.css";
-
+import axios from "axios";
 import Logo from "../components/General/Logo";
-export default function SignUpPage() {
-  const email = useRef();
-  const passwordRef = useRef();
+import { useNavigate } from "react-router-dom";
 
+export default function SignUpPage() {
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
+  const country = useRef();
+  const city = useRef();
+  const navigate = useNavigate();
+  const SignUpsubmitHandler = async (e) => {
+    e.preventDefault();
+    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+      alert("passwords do not match");
+
+      return;
+    }
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/register`,
+        {
+          firstName: firstNameRef.current.value,
+          lastName: lastNameRef.current.value,
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+          country: country.current.value,
+          city: city.current.value,
+        }
+      );
+      console.log(response);
+      if (response.status === 200) {
+        alert("Account Created Successfully");
+        navigate("/login");
+      }
+    } catch (err) {
+      console.log(err.response.data);
+      alert(err.response.data);
+    }
+  };
   return (
     <div className="SingUpContainer">
-      <div className="SignUpPageLogo">
-      </div>
+      <div className="SignUpPageLogo"></div>
       <div className="SingUpLeftHalf">
         <div className="SingUpGreetings">
           <div className="SingUpWelcome">Welcome!</div>
@@ -31,54 +66,68 @@ export default function SignUpPage() {
               <input
                 className="SingUpInput"
                 type="text"
-                ref={email}
+                ref={firstNameRef}
                 placeholder="First Name"
+                required
               />
               <input
                 className="SingUpInput"
                 type="text"
-                ref={email}
+                ref={lastNameRef}
                 placeholder="Last Name"
+                required
               />
             </div>
             <input
               className="SingUpInput"
               type="text"
-              ref={email}
+              ref={emailRef}
               placeholder="Email"
+              required
             />
             <input
               className="SingUpInput"
               type="password"
               ref={passwordRef}
               placeholder="Password"
+              required
             />
             <input
               className="SingUpInput"
               type="password"
-              ref={passwordRef}
+              ref={confirmPasswordRef}
               placeholder="Re-enter Password"
+              required
             />
-            <button className="SingUpSubmitButton" type="submit">
+            <input
+              className="SingUpInput"
+              type="text"
+              ref={country}
+              placeholder="Country (optional)"
+            />
+            <input
+              className="SingUpInput"
+              type="text"
+              ref={city}
+              placeholder="City (optional)"
+            />
+            <button
+              className="SingUpSubmitButton"
+              type="submit"
+              onClick={SignUpsubmitHandler}
+            >
               Sign Up
             </button>
           </form>
           <div className="AlreadyHaveAccount">Already have an account?</div>
         </div>
       </div>
-      <div className="SingUpRightHalf">
-        <div>
-          <Logo size={"5rem"}></Logo>
-        </div>
-        <p className="SignUpPageLeftHalfDesc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde
-          modi doloribus asperiores impedit ut voluptates atque rem minus
-          dolorem cum, reprehenderit omnis quia, distinctio quae ratione
-          sapiente labore consequuntur? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Adipisci unde modi doloribus asperiores impedit ut
-          voluptates atque rem minus dolorem cum, reprehenderit omnis quia,
-          distinctio quae ratione sapiente labore consequuntur?
-        </p>
+      <div className="LoginRightHalf">
+        <img
+          src="/photos/Project_160-06.jpg"
+          className="LoginScreenBackground"
+          alt="background"
+        />
       </div>
     </div>
   );

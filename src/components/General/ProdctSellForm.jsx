@@ -4,40 +4,53 @@ import { useState } from "react";
 import storage from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import axios from "axios";
+import DropdownList from "react-widgets/DropdownList";
+import { useNavigate } from "react-router-dom";
+import DATA from "../../category";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 export default function ProdctSellForm() {
-  const [name, setname] = useState("");
-  const [description, setdescription] = useState("");
-  const [price, setprice] = useState("");
+  const [name, setname] = useState(null);
+  const [description, setdescription] = useState(null);
+  const [price, setprice] = useState(null);
   const [thumbnail, setthumbnail] = useState(null);
   const [images, setimages] = useState([]);
-  const [category, setcategory] = useState("");
-  const [country, setcountry] = useState("");
-  const [city, setcity] = useState("");
+  const [category, setcategory] = useState(null);
+  const [country, setcountry] = useState(null);
+  const [city, setcity] = useState(null);
+  const navigate = useNavigate();
+  const [loading, setloading] = useState(false);
 
   const PostProduct = async (IMAGE_URLS, THUMBNAIL_URL) => {
-    const data = {
-      name: name,
-      description: description,
-      price: price,
-      images: IMAGE_URLS,
-      category: category,
-      country: country,
-      city: city,
-      thumbnail: THUMBNAIL_URL,
-    };
-    console.log(data);
-    const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/api/products`,
-      data,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${localStorage.getItem("accessToken")}`,
-        },
-      }
-    );
-    console.log(response);
+    try {
+      const data = {
+        name: name,
+        description: description,
+        price: price,
+        images: IMAGE_URLS,
+        category: category,
+        country: country,
+        city: city,
+        thumbnail: THUMBNAIL_URL,
+      };
+      console.log(data);
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/products`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      alert(err);
+    }
   };
 
   const UploadImnages = async () => {
@@ -89,8 +102,25 @@ export default function ProdctSellForm() {
   };
 
   const SumbitForm = async (e) => {
+    if (
+      !name ||
+      !description ||
+      !price ||
+      !thumbnail ||
+      !category ||
+      !country ||
+      !city
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
+
     e.preventDefault();
+    setloading(true);
     await UploadImnages();
+    setloading(false);
+
+    alert("product added");
   };
 
   const RemoveImage = (e) => {};
@@ -103,16 +133,17 @@ export default function ProdctSellForm() {
       <form className={styles.Form} action="">
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="name">
-            Name
+            Title
           </label>
           <input
+            required
             className={styles.formInput}
             type="text"
             name="name"
             id="name"
             value={name}
             onChange={(e) => setname(e.target.value)}
-            placeholder="Name"
+            placeholder="Title"
           />
         </div>
 
@@ -121,6 +152,7 @@ export default function ProdctSellForm() {
             Price
           </label>
           <input
+            required
             className={styles.formInput}
             type="number"
             name="price"
@@ -132,24 +164,30 @@ export default function ProdctSellForm() {
         </div>
 
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="category">
-            Category
-          </label>
-          <input
-            placeholder="Category"
-            className={styles.formInput}
-            type="text"
-            name="category"
-            id="category"
-            value={category}
-            onChange={(e) => setcategory(e.target.value)}
-          />
+          <FormControl>
+            <InputLabel id="demo-simple-select-label">category</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={category}
+              label="category"
+              onChange={(e) => setcategory(e.target.value)}
+            >
+              {DATA.map((item) => {
+                return item.name === "Newest" ? null : (
+                  <MenuItem value={item.name}>{item.name}</MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
         </div>
+
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="country">
             Country
           </label>
           <input
+            required
             placeholder="Country"
             className={styles.formInput}
             type="text"
@@ -164,6 +202,7 @@ export default function ProdctSellForm() {
             City
           </label>
           <input
+            required
             placeholder="City"
             className={styles.formInput}
             type="text"
@@ -179,6 +218,7 @@ export default function ProdctSellForm() {
             Description
           </label>
           <textarea
+            required
             className={styles.formInput}
             type="text"
             name="description"
@@ -194,6 +234,7 @@ export default function ProdctSellForm() {
             Thumbnail
           </label>
           <input
+            required
             className={styles.formInput}
             type="file"
             name="thumbnail"
@@ -259,8 +300,9 @@ export default function ProdctSellForm() {
             className={styles.SubmitButton}
             onClick={SumbitForm}
             type="submit"
+            disabled={loading}
           >
-            Submit
+            {loading ? "loading..." : "Submit"}
           </button>
         </div>
       </form>

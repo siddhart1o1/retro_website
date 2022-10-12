@@ -5,7 +5,7 @@ import Seprator from "../components/General/Seprator";
 import "./LoginScreen.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-
+import { Link } from "react-router-dom";
 export default function LoginScreen() {
   const email = useRef();
   const passwordRef = useRef();
@@ -36,6 +36,7 @@ export default function LoginScreen() {
         });
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("userInfo", JSON.stringify(response.data));
+        window.location.href = "/";
       } catch (err) {
         console.log(err);
         alert(err);
@@ -87,9 +88,17 @@ export default function LoginScreen() {
               Log in
             </button>
           </form>
-          <div className="LoginScreenSignUpButton" type="submit">
+          <Link
+            to="/signup"
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+            className="LoginScreenSignUpButton"
+            type="submit"
+          >
             Don't have an account? Sign up
-          </div>
+          </Link>
         </div>
       </div>
       <div className="LoginRightHalf">

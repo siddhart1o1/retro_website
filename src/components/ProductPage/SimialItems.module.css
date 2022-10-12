@@ -6,7 +6,6 @@
 
 .TOP {
   display: flex;
-  margin: 0 auto;
   margin-top: 2em;
   flex-direction: column;
 }
@@ -19,5 +18,5 @@
   gap: 1.5em;
   position: relative;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: left;
 }
