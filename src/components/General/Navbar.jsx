@@ -73,18 +73,21 @@ export default function Navbar() {
               textDecoration: "none",
               color: "white",
             }}
-            to="/sell"
+            to="/user/sell"
             className={styles.SellButton}
           >
             <span>SELL</span>
           </Link>
-          <Link style={{
-            textDecoration: "none",
-            color: "black",
-
-          }} to="/user/chats" className={styles.LeftItems}>
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+            to="/user/chats"
+            className={styles.LeftItems}
+          >
             {/* <Badge badgeContent={4} color="primary"> */}
-              <ChatBubbleIcon></ChatBubbleIcon>
+            <ChatBubbleIcon></ChatBubbleIcon>
             {/* </Badge> */}
             <span>Chat</span>
           </Link>

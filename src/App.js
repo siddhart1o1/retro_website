@@ -18,16 +18,9 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/:category" element={<HomePage />} />
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/search" element={<SearchPage />} />
-      
-
         {user ? (
           <>
-            <Route path="/sell" element={<SellProduct />} />
+            <Route path="/user/sell" element={<SellProduct />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/chat/:id" element={<ChatScreen />} />
             <Route path="/user/liked" element={<LikedProducts />} />
@@ -37,6 +30,12 @@ function App() {
         ) : (
           <Route path="*" element={<Navigate to="/login" replace />} />
         )}
+
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/:category" element={<HomePage />} />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </div>
   );
