@@ -19,7 +19,7 @@ export default function ChatScreen() {
   // *******************************************
 
   useEffect(() => {
-    socket.current = io("ws://retrosocket.herokuapp.com/");
+    socket.current = io("ws://retrosocket.herokuapp.com");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
