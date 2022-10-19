@@ -16,7 +16,7 @@ export default function TopCategoriesCard({
         className={styles.Container}
         style={{
           color: selected_category ? "white" : "inherit",
-          backgroundColor: selected_category ? "#ff3f6c" : "inherit",
+          backgroundColor: selected_category ? "#ff3f6c" : null,
         }}
         onClick={() => setSelected(!selected)}
       >

@@ -1,24 +1,23 @@
-.Container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    padding: 1em;
-    border-radius: 0.5em;
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 1em;
+  border-radius: 0.5em;
+
 }
 
-
-
-.Image{
-    width: 2em;
-    height: 2em;
-    object-fit: cover;
+.Image {
+  width: 2em;
+  height: 2em;
+  object-fit: cover;
 }
 
-.Title{
-    font-size: 0.9em;
-    font-weight: 500;
+.Title {
+  font-size: 0.9em;
+  font-weight: 500;
 }
 
 /* .Selected{
@@ -33,6 +32,6 @@
     border-bottom: 3px solid rgb(255, 255, 255);
 } */
 
-.Container:hover{
-    background-color: rgb(231, 230, 230);
+.Container:hover {
+  background-color: rgb(240, 238, 238);
 }

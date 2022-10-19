@@ -1,7 +1,7 @@
 .TOP {
   display: flex;
   max-width: 85em;
-  margin: 0 auto;
+  margin: 5em auto;
   justify-content:center;
   align-items: center;
 }

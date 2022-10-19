@@ -10,7 +10,6 @@ export default function LikedProducts() {
   const getlikedProducts = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_BACKEND_URL}/api/products/user/liked`,
-
       {
         headers: {
           Authorization: `${localStorage.getItem("accessToken")}`,

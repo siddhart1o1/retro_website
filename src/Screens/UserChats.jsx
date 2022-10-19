@@ -20,7 +20,7 @@ export default function UserChats() {
     };
     getChats();
   }, []);
-  console.log(chats);
+  console.log(`${process.env.REACT_APP_BACKEND_URL}/api/chat/userchats`);
   return (
     <div className={styles.TOP}>
       <div className={styles.Title}>Chats</div>
